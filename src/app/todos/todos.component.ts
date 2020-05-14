@@ -14,6 +14,7 @@ import {
   animations: [
     trigger('fade', [
       transition('void=>*', [style({ opacity: 0 }), animate(2000)]),
+      transition('*=>void', [animate(500, style({ opacity: 0 }))]),
     ]),
   ],
 })
