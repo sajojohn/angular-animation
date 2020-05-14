@@ -4,6 +4,7 @@ import {
   transition,
   style,
   animate,
+  keyframes,
 } from '@angular/animations';
 
 export let slide = trigger('slide', [
@@ -13,7 +14,13 @@ export let slide = trigger('slide', [
   ]),
   transition(':leave', [
     style({ transform: 'translateX(-10px)' }),
-    animate('0.5s ease-in', style({ transform: 'translateX(-100%)' })),
+    animate(
+      '0.5s ease-in',
+      keyframes([
+        style({ offset: 0.2, opacity: 1, transform: 'translateX(20px)' }),
+        style({ offset: 1, opacity: 0, transform: 'translateX(-100%)' }),
+      ])
+    ),
   ]),
 ]);
 
