@@ -6,15 +6,19 @@ import {
   style,
   animate,
 } from '@angular/animations';
-
+// transition('void<=>*', [animate(500)]),
+// OR
+// transition('void=>*, *=> void', [animate(500)]),
+// OR
+// transition(':enter, :leave', [animate(500)]),
 @Component({
   selector: 'todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
   animations: [
     trigger('fade', [
-      transition('void=>*', [style({ opacity: 0 }), animate(2000)]),
-      transition('*=>void', [animate(500, style({ opacity: 0 }))]),
+      state('void', style({ opacity: 0 })),
+      transition(':enter, :leave', [animate(500)]),
     ]),
   ],
 })
