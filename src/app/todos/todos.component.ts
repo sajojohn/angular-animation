@@ -1,11 +1,7 @@
+import { slide } from './../animations';
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  transition,
-  style,
-  animate,
-} from '@angular/animations';
+
+import { fade } from '../animations';
 // transition('void<=>*', [animate(500)]),
 // OR
 // transition('void=>*, *=> void', [animate(500)]),
@@ -15,12 +11,7 @@ import {
   selector: 'todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
-  animations: [
-    trigger('fade', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter, :leave', [animate(500)]),
-    ]),
-  ],
+  animations: [slide],
 })
 export class TodosComponent {
   items: any[] = [
